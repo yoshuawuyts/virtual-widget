@@ -9,7 +9,7 @@ function virtualWidget (obj) {
   assert.equal(typeof obj, 'object')
   const init = obj.init || noop
   const update = obj.update || noop
-  const destroy = obj.update || noop
+  const destroy = obj.destroy || noop
 
   Widget.prototype.init = init
   Widget.prototype.update = update
