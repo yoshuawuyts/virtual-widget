@@ -50,6 +50,9 @@ Create a new `virtual-widget` using hooks. The following hooks are available:
 - __init__: run when the element is first created. Define the instantiation
   logic here.
 - __update__: run on a re-render. Gives a chance to update state.
+- __destroy__: run before the widget is unmounted. It is passed the HTMLElement
+  associated with the widget that will be removed. Generally used to clean up
+  data and remove hooks.
 
 ## See Also
 - [virtual-dom/docs/widgets](https://github.com/Raynos/mercury/blob/master/docs/widgets.md)

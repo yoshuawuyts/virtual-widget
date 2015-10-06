@@ -4,14 +4,16 @@ const noop = require('noop2')
 module.exports = virtualWidget
 
 // Create a virtual-dom widget
-// null -> null
+// obj -> fn(fn)
 function virtualWidget (obj) {
   assert.equal(typeof obj, 'object')
   const init = obj.init || noop
   const update = obj.update || noop
+  const destroy = obj.update || noop
 
   Widget.prototype.init = init
   Widget.prototype.update = update
+  Widget.prototype.destroy = destroy
 
   return Widget
 
