@@ -27,7 +27,11 @@ module.exports = virtualWidget({
   },
   update: function (prev, el) {
     this.map = this.map || prev.map
-    this.map.setPosition(this.position)
+    this.map.setPosition(this.state.position)
+  },
+  destroy: function (el) {
+    // clear position
+    this.state.position.set({ x: 0, y: 0 })
   }
 })
 ```
