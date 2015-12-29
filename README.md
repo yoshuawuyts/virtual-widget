@@ -57,10 +57,13 @@ Create a new `virtual-widget` using hooks. The following hooks are available:
 - __destroy__: run before the widget is unmounted. It is passed the HTMLElement
   associated with the widget that will be removed. Generally used to clean up
   data and remove hooks.
+- __render__: return a string of HTML for server side rendering. It's
+  recommended to use [vdom-to-html][1] for server-side rendering.
 
 ## See Also
 - [virtual-dom/docs/widgets](https://github.com/Raynos/mercury/blob/master/docs/widgets.md)
 - [mercury/docs/how-to-do-custom-rendering](https://github.com/Raynos/mercury/blob/master/docs/faq.md#how-do-i-do-custom-rendering)
+- [vdom-to-html][1]
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
@@ -75,3 +78,4 @@ Create a new `virtual-widget` using hooks. The following hooks are available:
 [downloads-url]: https://npmjs.org/package/virtual-widget
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [standard-url]: https://github.com/feross/standard
+[1]: https://github.com/nthtran/vdom-to-html
