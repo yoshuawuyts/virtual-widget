@@ -21,7 +21,7 @@ function virtualWidget (obj) {
 
   function Widget (state) {
     if (!(this instanceof Widget)) return new Widget(state)
-    assert.equal(typeof state, 'object')
+    assert.equal(typeof state, 'object', 'state should be an object')
     this.type = 'Widget'
     this.state = state || {}
   }
