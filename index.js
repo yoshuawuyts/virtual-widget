@@ -12,17 +12,19 @@ function virtualWidget (obj) {
   const destroy = obj.destroy || noop
   const render = obj.render || noop
 
-  Widget.prototype.init = init
   Widget.prototype.update = update
   Widget.prototype.destroy = destroy
   Widget.prototype.render = render
 
   return Widget
 
-  function Widget (state) {
-    if (!(this instanceof Widget)) return new Widget(state)
-    assert.equal(typeof state, 'object', 'state should be an object')
+  function Widget () {
+    if (!(this instanceof Widget)) {
+      const o = Object.create(Widget.prototype)
+      o.constructor.apply(o, arguments)
+      return o
+    }
     this.type = 'Widget'
-    this.state = state || {}
+    this.init = init.apply.bind(init, this, arguments)
   }
 }
