@@ -19,7 +19,8 @@ $ npm install virtual-widget
 const virtualWidget = require('virtual-widget')
 
 module.exports = virtualWidget({
-  init: function () {
+  init: function (state) {
+    this.state = state
     var elem = document.createElement('div')
     this.map = GoogleMap(elem)
     this.map.setPosition(this.state.position)
